@@ -209,6 +209,12 @@ public class Main extends Application {
 
     }
 
+    @Override
+    public void init() throws Exception {
+        super.init();
+    }
+//
+
     lab.map.Stage readSave(String filePath){
         lab.map.Stage stage=null;
         try {
