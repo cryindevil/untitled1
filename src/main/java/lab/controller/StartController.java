@@ -4,19 +4,28 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import lab.map.Stage;
 
+import java.io.IOException;
+
 public class StartController {
+    SharedService sharedService=SharedService.getInstance();//创建共享类
+
+    FXMLLoader fx=new FXMLLoader(getClass().getResource("/test1/start.fxml"));
+    Parent startRoot= fx.load();
+    StartController startController=fx.getController();
     @FXML
-    private Button chuangjian;
+    public Button createStageButton;
 
     @FXML
-    private ChoiceBox<String> liebiao;
+    public ChoiceBox<String> choosingList;
 
     @FXML
-    private Button xuanze;
+    public Button chooseStageButton;
 
     public String string="关卡1";
 
@@ -25,38 +34,35 @@ public class StartController {
     }
 
     @FXML
-    void initialize() {//choicebox中的选项和监视器
+    void initialize() {
         ObservableList<String> options = FXCollections.observableArrayList(
                 "关卡1",
                 "关卡2",
                 "关卡3"
         );
-        liebiao.setItems(options);
-        liebiao.setValue("关卡1");
-//        System.out.println(liebiao.getValue());
-        liebiao.setOnAction((event) -> {
-           string = liebiao.getValue();
+        choosingList.setItems(options);
+        choosingList.setValue("关卡1");
+        choosingList.setOnAction((event) -> {
+           string = choosingList.getValue();
         });
-    }
-
-    public StartController(){
-    }
-
-    @FXML
-    void chuangjian(ActionEvent event) {
-    }
+    }//choicebox中的选项和监视器
 
 
-    public Button getChuangjian() {
-        return chuangjian;
-    }
 
-    public Button getXuanze() {
-        return xuanze;
+    public StartController() throws IOException {
+
     }
 
     @FXML
-    void clickXuan(ActionEvent event) {
+    void createStageButtonClicked(ActionEvent event) {
+        sharedService.stage.setScene(sharedService.createScene);
+    }
 
+
+
+    @FXML
+    public void chooseStageButtonClicked(ActionEvent event) {
+        sharedService.playController.setMap(sharedService.getStage());
+        sharedService.stage.setScene(sharedService.playScene);
     }
 }

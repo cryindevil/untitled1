@@ -9,15 +9,15 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab.controller.StartController">
    <children>
-      <Button fx:id="chuangjian" layoutX="1351.0" layoutY="181.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#chuangjian" prefHeight="134.0" prefWidth="295.0" text="创建关卡">
+      <Button fx:id="createStageButton" layoutX="1351.0" layoutY="181.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#createStageButtonClicked" prefHeight="134.0" prefWidth="295.0" text="创建关卡">
          <font>
             <Font size="30.0" />
          </font></Button>
-      <Button id="xuanze" layoutX="1358.0" layoutY="623.0" mnemonicParsing="false" onAction="#clickXuan" prefHeight="147.0" prefWidth="295.0" text="选择该关卡" fx:id="xuanze">
+      <Button id="xuanze" fx:id="chooseStageButton" layoutX="1358.0" layoutY="623.0" mnemonicParsing="false" onAction="#chooseStageButtonClicked" prefHeight="147.0" prefWidth="295.0" text="选择该关卡">
          <font>
             <Font size="36.0" />
          </font></Button>
-      <ChoiceBox fx:id="liebiao" layoutX="1349.0" layoutY="418.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="93.0" prefWidth="295.0" style="-fx-font-size: 36px;" />
+      <ChoiceBox fx:id="choosingList" layoutX="1349.0" layoutY="418.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="93.0" prefWidth="295.0" style="-fx-font-size: 36px;" />
       <ImageView fitHeight="919.0" fitWidth="832.0" layoutX="171.0" layoutY="81.0">
          <image>
             <Image url="@../pics/robot.jpg" />

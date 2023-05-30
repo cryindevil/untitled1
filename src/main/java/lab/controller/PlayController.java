@@ -1,24 +1,22 @@
 package lab.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import lab.Things.*;
 import lab.director.InputProcess;
 import lab.map.Stage;
 
+import java.io.*;
 import java.util.ArrayList;
 
 public class PlayController {
-
-    public Button getPlayReturn() {
-        return playReturn;
-    }
+    SharedService sharedService=SharedService.getInstance();//创建共享类
 
     @FXML
     public MenuItem help;
@@ -28,18 +26,98 @@ public class PlayController {
     public MenuItem save;
     @FXML
     private GridPane map;
-
     @FXML
     private Button run;
-
     @FXML
     private TextArea codeArea;
+    @FXML
+    private Button playReturn;
+    @FXML
+    public TextArea wrong;
+    @FXML
+    public TextArea diary;
 
-    public GridPane getMap() {
-        return map;
+
+
+    @FXML
+    void quitStageButtonClicked(ActionEvent event) {
+        sharedService.stage.setScene(sharedService.createScene);
     }
+//    lab.map.Stage stage;
+//            if (startController.string.equals("关卡2")) {
+////                inputProcess = inputProcessStage2;
+////                inputProcess.setStage(stage2);
+//        stage= finalStage3;
+//    }
+//            else if (startController.string.equals("关卡3")) {
+////                inputProcess = inputProcessStage3;
+//        stage= finalStage4;
+//    }
+//            else {
+////                inputProcess = inputProcessStage1;
+//        stage= finalStage5;
+//    }
+//            playController.
 
-    public PlayController() {
+    @FXML
+    void runCodeButtonClicked(ActionEvent event) {
+        sharedService.inputProcess.setStage(sharedService.getStage());
+        process(enterCode(),sharedService.getStage());
+        File file = new File(sharedService.getStage().wrongPath);
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(file));
+        } catch (
+                FileNotFoundException ex) {
+            throw new RuntimeException(ex);
+        }
+        String line;
+        StringBuilder content = new StringBuilder();
+        while (true) {
+            try {
+                if ((line = reader.readLine()) == null) break;
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            content.append(line).append("\n");
+        }
+        try {
+            reader.close();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+        wrong.setText(content.toString());
+
+        file = new File(sharedService.getStage().diaryPath);
+        reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(file));
+        } catch (FileNotFoundException ex) {
+            throw new RuntimeException(ex);
+        }
+        content = new StringBuilder();
+        while (true) {
+            try {
+                if ((line = reader.readLine()) == null) break;
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            content.append(line).append("\n");
+        }
+        try {
+            reader.close();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+        diary.setText(content.toString());
+
+    }//运行代码
+
+//    public GridPane getMap() {
+//        return map;
+//    }
+
+    public PlayController() throws IOException {
     }
 
     public ArrayList<String> enterCode(){
@@ -64,7 +142,7 @@ public class PlayController {
         return list;
         }
 
-        public void process(ArrayList<String>list,Stage stage){
+    public void process(ArrayList<String>list,Stage stage){
             InputProcess inputProcess=new InputProcess();
             inputProcess.setStage(stage);
         for (String s:
@@ -74,19 +152,22 @@ public class PlayController {
             setMap(stage);
         }
 
-    public Button getRun() {
-        return run;
+//    public Button getRun() {
+//        return run;
+//    }
+    @FXML
+    void saveClicked(ActionEvent event) {
+        try {
+            FileOutputStream fileOut = new FileOutputStream("src/main/resources/ser/"+sharedService.startController.string+".ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(sharedService.getStage());
+            out.close();
+            fileOut.close();
+            System.out.printf("Serialized data is saved in person.ser");
+        } catch (Exception ee) {
+            ee.printStackTrace();
+        }
     }
-
-    @FXML
-    private Button playReturn;
-
-
-    @FXML
-    public TextArea wrong;
-
-    @FXML
-    public TextArea diary;
 
 
     public void setMap(Stage stage) {
@@ -122,7 +203,7 @@ public class PlayController {
                     default -> throw new IllegalStateException("Unexpected value: " + stage.getRobot().getDire());
                 };
         add(ro,stage.getRobot().x,stage.getRobot().y);
-    }
+    }//设定地图
 
     public void add(String s,int i,int j){
         Image image;
@@ -130,5 +211,5 @@ public class PlayController {
         image=new Image(s);
         imageView=new ImageView(image);
         map.add(imageView,j,i);
-    }
+    }//地图上的某个格子中加入图片
 }

@@ -29,12 +29,12 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button fx:id="playReturn" layoutX="147.0" layoutY="934.0" mnemonicParsing="false" prefHeight="123.0" prefWidth="177.0" text="退出关卡">
+      <Button fx:id="playReturn" layoutX="147.0" layoutY="934.0" mnemonicParsing="false" onAction="#quitStageButtonClicked" prefHeight="123.0" prefWidth="177.0" text="退出关卡">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="run" layoutX="452.0" layoutY="934.0" mnemonicParsing="false" prefHeight="119.0" prefWidth="179.0" text="运行代码">
+      <Button fx:id="run" layoutX="452.0" layoutY="934.0" mnemonicParsing="false" onAction="#runCodeButtonClicked" prefHeight="119.0" prefWidth="179.0" text="运行代码">
          <font>
             <Font size="24.0" />
          </font>
@@ -47,7 +47,7 @@
          <menus>
             <Menu mnemonicParsing="false" style="-fx-font-size: 30;" text="文件">
                <items>
-                  <MenuItem fx:id="save" mnemonicParsing="false" text="保存" />
+                  <MenuItem fx:id="save" mnemonicParsing="false" onAction="#saveClicked" text="保存" />
                   <MenuItem fx:id="loadGame" mnemonicParsing="false" text="读档" />
                   <MenuItem fx:id="changStage" mnemonicParsing="false" text="切换关卡" />
                </items>

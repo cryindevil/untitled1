@@ -152,7 +152,7 @@ public class InputProcess {
         FileWriter fw = new FileWriter(filePath, false);
         fw.write("");
         fw.close();
-
 }
+
 
 }
