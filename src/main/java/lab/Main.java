@@ -62,7 +62,7 @@ public class Main extends Application {
            playController.getMap().getChildren().clear();
             primaryStage.setScene(playScene);
             if (startController.string.equals("关卡2")) {
-            sendStage(stage2,);
+//            sendStage(stage2,);
 
 
 
@@ -228,7 +228,7 @@ public class Main extends Application {
         }
         return stage;
     }
-    void setStage2(Stage old){
-        s=old;
-    }
+//    void setStage2(Stage old){
+//        s=old;
+//    }
 }
