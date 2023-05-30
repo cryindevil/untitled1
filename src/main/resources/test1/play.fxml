@@ -52,7 +52,11 @@
                   <MenuItem fx:id="changStage" mnemonicParsing="false" text="切换关卡" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" style="-fx-font-size: 30;" text="编辑" />
+            <Menu mnemonicParsing="false" style="-fx-font-size: 30;" text="编辑">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#resetThreeStage" text="还原三个关卡" />
+                  <MenuItem mnemonicParsing="false" onAction="#resetThisStage" text="还原此关卡" />
+               </items></Menu>
             <Menu mnemonicParsing="false" style="-fx-font-size: 30;" text="视图">
                <items>
                   <MenuItem fx:id="help" mnemonicParsing="false" text="游戏帮助" />

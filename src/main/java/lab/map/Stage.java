@@ -32,7 +32,6 @@ public class Stage implements Serializable {
 
 
 	public void setStage1() throws IOException {
-
 		wrongPath="src/main/resources/store/关卡1wrong.txt";
 		diaryPath="src/main/resources/store/关卡1diary.txt";
 		InputProcess.clearFile(wrongPath);
@@ -40,6 +39,7 @@ public class Stage implements Serializable {
 		status="关卡1";
 		x=3;
 		y=6;
+		list.clear();
 		list.add(new Rock(1,5));
 		robot=new Robot(1,0,0);
 	}
@@ -52,6 +52,7 @@ public class Stage implements Serializable {
 		status="关卡2";
 		x=3;
 		y=6;
+		list.clear();
 		list.add(new Rock(1,5));
 		list.add(new Wall(0,0));
 		list.add(new Wall(1,0));
@@ -70,6 +71,7 @@ public class Stage implements Serializable {
 		status="关卡3";
 		x=5;
 		y=8;
+		list.clear();
 		list.add(new Rock(0,7));
 		list.add(new Rock(1,2));
 		list.add(new Wall(0,4));

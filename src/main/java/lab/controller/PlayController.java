@@ -41,7 +41,7 @@ public class PlayController {
 
     @FXML
     void quitStageButtonClicked(ActionEvent event) {
-        sharedService.stage.setScene(sharedService.createScene);
+        sharedService.stage.setScene(sharedService.startScene);
     }
 //    lab.map.Stage stage;
 //            if (startController.string.equals("关卡2")) {
@@ -120,7 +120,7 @@ public class PlayController {
     public PlayController() throws IOException {
     }
 
-    public ArrayList<String> enterCode(){
+    public ArrayList<String> enterCode(){//报错
         ArrayList<String> list = new ArrayList<>();
         String[] s=codeArea.getText().split("\n");
         StringBuilder sb = new StringBuilder();
@@ -212,4 +212,22 @@ public class PlayController {
         imageView=new ImageView(image);
         map.add(imageView,j,i);
     }//地图上的某个格子中加入图片
+    @FXML
+    void resetThisStage(ActionEvent event) throws IOException {//!考虑new情况
+
+        if(sharedService.startController.string.equals("关卡1")){
+            sharedService.stage1.setStage1();
+        }if (sharedService.startController.string.equals("关卡2")){
+            sharedService.stage2.setStage2();
+        }else sharedService.stage3.setStage3();
+        setMap(sharedService.getStage());
+    }
+
+    @FXML
+    void resetThreeStage(ActionEvent event) throws IOException {//考虑new情况
+        sharedService.stage1.setStage1();
+        sharedService.stage2.setStage2();
+        sharedService.stage3.setStage3();
+        setMap(sharedService.getStage());
+    }
 }

@@ -15,9 +15,9 @@ import java.io.IOException;
 public class StartController {
     SharedService sharedService=SharedService.getInstance();//创建共享类
 
-    FXMLLoader fx=new FXMLLoader(getClass().getResource("/test1/start.fxml"));
-    Parent startRoot= fx.load();
-    StartController startController=fx.getController();
+//    FXMLLoader fx=new FXMLLoader(getClass().getResource("/test1/start.fxml"));
+//    Parent startRoot= fx.load();
+//    StartController startController=fx.getController();
     @FXML
     public Button createStageButton;
 
@@ -56,6 +56,7 @@ public class StartController {
     @FXML
     void createStageButtonClicked(ActionEvent event) {
         sharedService.stage.setScene(sharedService.createScene);
+
     }
 
 
@@ -64,5 +65,6 @@ public class StartController {
     public void chooseStageButtonClicked(ActionEvent event) {
         sharedService.playController.setMap(sharedService.getStage());
         sharedService.stage.setScene(sharedService.playScene);
+        sharedService.loadSave();
     }
 }
