@@ -7,13 +7,17 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import lab.Things.*;
 import lab.director.InputProcess;
 import lab.map.Stage;
 
 import java.io.*;
 import java.util.ArrayList;
+
+//import static jdk.internal.org.jline.utils.Colors.s;
 
 public class PlayController {
     SharedService sharedService=SharedService.getInstance();//创建共享类
@@ -35,6 +39,12 @@ public class PlayController {
     public TextArea wrong;
     @FXML
     public TextArea diary;
+    @FXML
+    public Pane smallPane;
+    @FXML
+    public AnchorPane bigPane;
+
+    Stage targetStage;
 
     @FXML
     void loadGameItemClicked(ActionEvent event) {
@@ -45,6 +55,7 @@ public class PlayController {
     void quitStageButtonClicked(ActionEvent event) {
         sharedService.playingNewStage=false;
         sharedService.stage.setScene(sharedService.startScene);
+        sharedService.startController.string = sharedService.startController.choosingList.getValue();
     }
 
     @FXML
@@ -175,6 +186,78 @@ public class PlayController {
             setMap(sharedService.getStage());
         }
     }//考虑new情况
+    @FXML
+    void changeNewStageMenu(ActionEvent event) throws FileNotFoundException {
+        sharedService.playingNewStage=true;
+
+        System.out.println(sharedService.stage1==null);
+        if(sharedService.hasChanged()){
+            sharedService.startController.string="新关卡";
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setScene(sharedService.changeScene);
+            stage.show();
+
+            targetStage=sharedService.newstage;
+        }else {
+            sharedService.startController.string="新关卡";
+            if (sharedService.newstage.hasDefined) {
+                sharedService.playController.setMap(sharedService.getStage());
+                sharedService.playController.showDiaryWrong();
+            }
+            else sharedService.stage.setScene(sharedService.createScene);
+        }
+    }
+
+    @FXML
+    void changeStage1Menu(ActionEvent event) throws FileNotFoundException {
+        sharedService.playingNewStage=false;
+
+        if(sharedService.hasChanged()){
+            sharedService.startController.string="关卡1";
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setScene(sharedService.changeScene);
+            stage.show();
+            targetStage=sharedService.stage1;
+        }else {
+            sharedService.startController.string="关卡1";
+            sharedService.playController.setMap(sharedService.getStage());
+            sharedService.playController.showDiaryWrong();
+        }
+    }
+
+    @FXML
+    void changeStage2Menu(ActionEvent event) throws FileNotFoundException {
+        sharedService.playingNewStage=false;
+
+        if(sharedService.hasChanged()){
+            sharedService.startController.string="关卡2";
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setScene(sharedService.changeScene);
+            stage.show();
+            targetStage=sharedService.stage2;
+        }else{
+            sharedService.startController.string="关卡2";
+            sharedService.playController.setMap(sharedService.getStage());
+            sharedService.playController.showDiaryWrong();
+        }
+    }
+
+    @FXML
+    void changeStage3Menu(ActionEvent event) throws FileNotFoundException {
+        sharedService.playingNewStage=false;
+
+        if(sharedService.hasChanged()){
+            sharedService.startController.string="关卡3";
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setScene(sharedService.changeScene);
+            stage.show();
+            targetStage=sharedService.stage3;
+        }else{
+            sharedService.startController.string="关卡3";
+            sharedService.playController.setMap(sharedService.getStage());
+            sharedService.playController.showDiaryWrong();
+        }
+    }
 
     public PlayController() throws IOException {}
 
@@ -255,5 +338,7 @@ public class PlayController {
         imageView=new ImageView(image);
         map.add(imageView,j,i);
     }//地图上的某个格子中加入图片
+
+
 
 }

@@ -21,7 +21,7 @@ public class Stage implements Serializable {
 	public String wrongPath="src/main/resources/store/新关卡wrong.txt";
 	public String diaryPath="src/main/resources/store/新关卡diary.txt";
 
-	public String status= null;
+	public String status= "新关卡";
 
 	public String functionName;
 	public boolean functionDefined=false;
@@ -30,6 +30,9 @@ public class Stage implements Serializable {
 	public boolean hasDefined=false;
 
 	public boolean mapSizeDefined=false;
+
+	public boolean win=false;
+	public boolean lose=false;
 	public Stage()  {
 
 	}

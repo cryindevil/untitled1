@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab.controller.changeController">
+   <children>
+      <Button layoutX="119.0" layoutY="211.0" mnemonicParsing="false" onAction="#changeWithSave" prefHeight="63.0" prefWidth="106.0" text="保存" />
+      <Label layoutX="127.0" layoutY="92.0" prefHeight="56.0" prefWidth="308.0" text="您还未保存，是否要保存后再切换？">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="337.0" layoutY="211.0" mnemonicParsing="false" onAction="#ChangeWithoutSave" prefHeight="63.0" prefWidth="106.0" text="不保存" />
+   </children>
+</AnchorPane>

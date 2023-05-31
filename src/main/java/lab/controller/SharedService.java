@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.*;
+import java.util.Scanner;
 
 public class SharedService {
     boolean playingNewStage=false;
@@ -28,9 +29,13 @@ public class SharedService {
     FXMLLoader fx2=new FXMLLoader(getClass().getResource("/test1/createMap.fxml"));
     Parent createRoot;
     public CreateController createController;//获得三个控制器
+    FXMLLoader fx3=new FXMLLoader(getClass().getResource("/test1/change.fxml"));
+    Parent changeRoot;
+    public changeController changeController;//获得三个控制器
     public Scene startScene;
     public Scene createScene;
     public Scene playScene;//获得三个scene
+    public Scene changeScene;
     public Stage stage;//显示图片的主stage
 
 
@@ -41,9 +46,12 @@ public class SharedService {
         playController=fx1.getController();
         createRoot=fx2.load();
         createController=fx2.getController();
+        changeRoot=fx3.load();
+        changeController=fx3.getController();
         startScene=new Scene(startRoot);
         createScene=new Scene(createRoot);
         playScene=new Scene(playRoot);//获得三个scene
+        changeScene=new Scene(changeRoot);
     }
 
     private SharedService() { }
@@ -65,7 +73,10 @@ public class SharedService {
             return stage1;
         }if (startController.string.equals("关卡2")){
             return stage2;
+        }else if (startController.string.equals("新关卡")){
+            return newstage;
         }else return stage3;
+
     }//已添加newstage
 
     lab.map.Stage readSave(String filePath){
@@ -81,6 +92,7 @@ public class SharedService {
         }
         return stage;
     }//读取某个的存档
+
     public void loadSave(){
         stage1=readSave("src/main/resources/ser/关卡1.ser");
         stage2=readSave("src/main/resources/ser/关卡2.ser");
@@ -90,5 +102,45 @@ public class SharedService {
             playController.setMap(newstage);
         }else playController.setMap(getStage());
     }//读取全部的存档
+
+    boolean hasChanged() throws FileNotFoundException {
+        System.out.println(getStage().status);
+        lab.map.Stage stage=readSave("src/main/resources/ser/"+getStage().status+".ser");
+
+        boolean flag1;
+        String textToCompareDiary = playController.diary.getText();
+        File file = new File(getStage().diaryPath);
+        Scanner scanner = new Scanner(file);
+        StringBuilder sb = new StringBuilder();
+        while (scanner.hasNextLine()) {
+            sb.append(scanner.nextLine());
+        }
+        String fileContent = sb.toString();
+        if (textToCompareDiary.equals(fileContent)) {
+            flag1=true;
+        } else {
+            flag1=false;
+        }
+
+        boolean flag2;
+        String textToCompareWrong = playController.wrong.getText();
+        file = new File(getStage().wrongPath);
+        scanner = new Scanner(file);
+        sb = new StringBuilder();
+        // 将文件内容读取到StringBuilder中
+        while (scanner.hasNextLine()) {
+            sb.append(scanner.nextLine());
+        }
+        fileContent = sb.toString();
+        if (textToCompareWrong.equals(fileContent)) {
+            flag2=true;
+        } else {
+            flag2=false;
+        }
+
+        lab.map.Stage stage4=getStage();
+        if (stage.equals(getStage())&&flag1&&flag2)return false;else return true;
+    }
+
 
 }
