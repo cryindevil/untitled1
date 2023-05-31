@@ -48,7 +48,7 @@
             <Menu mnemonicParsing="false" style="-fx-font-size: 30;" text="文件">
                <items>
                   <MenuItem fx:id="save" mnemonicParsing="false" onAction="#saveClicked" text="保存" />
-                  <MenuItem fx:id="loadGame" mnemonicParsing="false" text="读档" />
+                  <MenuItem fx:id="loadGame" mnemonicParsing="false" onAction="#loadGameItemClicked" text="读档" />
                   <MenuItem fx:id="changStage" mnemonicParsing="false" text="切换关卡" />
                </items>
             </Menu>

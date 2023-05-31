@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d1f40d5-e7fd-4426-8f77-b7c087f5245e" name="更改" comment="控制器重构">
+    <list default="true" id="3d1f40d5-e7fd-4426-8f77-b7c087f5245e" name="更改" comment="三张地图基本实现">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/PlayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/PlayController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/StartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab/map/Stage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/map/Stage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ser/关卡1.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ser/关卡1.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/store/关卡1wrong.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/store/关卡1wrong.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/test1/play.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test1/play.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685459766923</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="三张地图基本实现">
+      <created>1685464224136</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685464224136</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -244,7 +249,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="加入斜杠" />
     <MESSAGE value="控制器重构" />
-    <option name="LAST_COMMIT_MESSAGE" value="控制器重构" />
+    <MESSAGE value="三张地图基本实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="三张地图基本实现" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

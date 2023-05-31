@@ -37,27 +37,15 @@ public class PlayController {
     @FXML
     public TextArea diary;
 
-
+    @FXML
+    void loadGameItemClicked(ActionEvent event) {
+        sharedService.loadSave();
+    }
 
     @FXML
     void quitStageButtonClicked(ActionEvent event) {
         sharedService.stage.setScene(sharedService.startScene);
     }
-//    lab.map.Stage stage;
-//            if (startController.string.equals("关卡2")) {
-////                inputProcess = inputProcessStage2;
-////                inputProcess.setStage(stage2);
-//        stage= finalStage3;
-//    }
-//            else if (startController.string.equals("关卡3")) {
-////                inputProcess = inputProcessStage3;
-//        stage= finalStage4;
-//    }
-//            else {
-////                inputProcess = inputProcessStage1;
-//        stage= finalStage5;
-//    }
-//            playController.
 
     @FXML
     void runCodeButtonClicked(ActionEvent event) {
@@ -113,18 +101,17 @@ public class PlayController {
 
     }//运行代码
 
-//    public GridPane getMap() {
-//        return map;
-//    }
-
     public PlayController() throws IOException {
     }
 
-    public ArrayList<String> enterCode(){//报错
+    public ArrayList<String> enterCode(){
         ArrayList<String> list = new ArrayList<>();
         String[] s=codeArea.getText().split("\n");
         StringBuilder sb = new StringBuilder();
-
+        if(s.length==1) {
+            list.add(s[0].substring(0,s[0].length()-1));
+            return list;
+        }
         for (int i = 0; i < s.length; i++) {
             if (s[i].endsWith(";")) {
                 list.add(s[i].substring(0,s[i].length()-1));
@@ -136,8 +123,7 @@ public class PlayController {
                 System.out.println(sb);
                 list.add(sb.toString()); // 将拼接好的字符串添加到结果 ArrayList 中
                 sb.setLength(0); // 清空 StringBuilder
-            }
-
+            }//报错
         }
         return list;
         }
@@ -152,9 +138,6 @@ public class PlayController {
             setMap(stage);
         }
 
-//    public Button getRun() {
-//        return run;
-//    }
     @FXML
     void saveClicked(ActionEvent event) {
         try {
@@ -212,22 +195,22 @@ public class PlayController {
         imageView=new ImageView(image);
         map.add(imageView,j,i);
     }//地图上的某个格子中加入图片
-    @FXML
-    void resetThisStage(ActionEvent event) throws IOException {//!考虑new情况
 
+    @FXML
+    void resetThisStage(ActionEvent event) throws IOException {
         if(sharedService.startController.string.equals("关卡1")){
             sharedService.stage1.setStage1();
         }if (sharedService.startController.string.equals("关卡2")){
             sharedService.stage2.setStage2();
         }else sharedService.stage3.setStage3();
         setMap(sharedService.getStage());
-    }
+    }//!考虑new情况
 
     @FXML
-    void resetThreeStage(ActionEvent event) throws IOException {//考虑new情况
+    void resetThreeStage(ActionEvent event) throws IOException {
         sharedService.stage1.setStage1();
         sharedService.stage2.setStage2();
         sharedService.stage3.setStage3();
         setMap(sharedService.getStage());
-    }
+    }//考虑new情况
 }

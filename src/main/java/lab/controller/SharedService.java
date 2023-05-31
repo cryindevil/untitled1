@@ -17,7 +17,7 @@ public class SharedService {
     public InputProcess inputProcess=new InputProcess();
 
     public void loadSave(){
-        stage1=readSave("src/main/resour ces/ser/关卡1.ser");
+        stage1=readSave("src/main/resources/ser/关卡1.ser");
         stage2=readSave("src/main/resources/ser/关卡2.ser");
         stage3=readSave("src/main/resources/ser/关卡3.ser");//将三个stage初始化
         playController.setMap(getStage());
