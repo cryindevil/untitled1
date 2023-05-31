@@ -66,7 +66,7 @@ public class SharedService {
     public void setStage(Stage stage) {
         this.stage = stage;
     }
-
+//
     public lab.map.Stage getStage(){
         if (playingNewStage) return newstage;
         if(startController.string.equals("关卡1")){
