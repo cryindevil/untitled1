@@ -8,8 +8,31 @@ import lab.director.InputProcess;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class Stage implements Serializable {
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((list == null) ? 0 : list.hashCode());
+		result = prime * result + ((filledTraps == null) ? 0 : filledTraps.hashCode());
+		result = prime * result + x;
+		result = prime * result + y;
+		result = prime * result + ((robot == null) ? 0 : robot.hashCode());
+		result = prime * result + (robotDefined ? 1231 : 1237);
+		result = prime * result + (hasVisited ? 1231 : 1237);
+		result = prime * result + ((wrongPath == null) ? 0 : wrongPath.hashCode());
+		result = prime * result + ((diaryPath == null) ? 0 : diaryPath.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result + ((functionName == null) ? 0 : functionName.hashCode());
+		result = prime * result + Arrays.hashCode(commands);
+		result = prime * result + (hasDefined ? 1231 : 1237);
+		result = prime * result + (mapSizeDefined ? 1231 : 1237);
+		result = prime * result + (win ? 1231 : 1237);
+		result = prime * result + (lose ? 1231 : 1237);
+		return result;
+	}
 	private static final long serialVersionUID = 1L;
 	public ArrayList<Thing>list=new ArrayList<>();//list里面放三样东西：石头，墙，未填陷阱
 	public ArrayList<FilledTrap>filledTraps=new ArrayList<>();
@@ -111,6 +134,17 @@ public class Stage implements Serializable {
 	}
 
 	public class Robot implements Serializable {
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + x;
+			result = prime * result + y;
+			result = prime * result + dire;
+			result = prime * result + rockInBag;
+			result = prime * result + rockPicked;
+			return result;
+		}
 		public int x;
 		public int y;
 		private int dire;

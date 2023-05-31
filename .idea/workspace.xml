@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d1f40d5-e7fd-4426-8f77-b7c087f5245e" name="更改" comment="基本完成">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lab/controller/changeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test1/change.fxml" afterDir="false" />
+    <list default="true" id="3d1f40d5-e7fd-4426-8f77-b7c087f5245e" name="更改" comment="test">
+      <change afterPath="$PROJECT_DIR$/src/main/java/lab/controller/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/PlayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/PlayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lab/map/Stage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/map/Stage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/新关卡.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ser/新关卡.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/store/关卡1wrong.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/store/关卡1wrong.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test1/play.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test1/play.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/关卡1.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ser/关卡1.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/关卡2.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ser/关卡2.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/关卡3.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ser/关卡3.ser" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +28,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="尝试换方法" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
@@ -80,12 +82,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GridPaneExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="lab.GridPaneExample" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lab.controller.Main" />
       <module name="untitled1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value=".*" />
+          <option name="PATTERN" value="lab.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -135,10 +137,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="应用程序.scale" />
+        <item itemvalue="应用程序.Main" />
         <item itemvalue="应用程序.ButtonTextExample" />
         <item itemvalue="应用程序.TimerExample" />
         <item itemvalue="应用程序.TimelineExample" />
-        <item itemvalue="应用程序.GridPaneExample" />
       </list>
     </recent_temporary>
   </component>
@@ -179,12 +181,51 @@
       <option name="project" value="LOCAL" />
       <updated>1685547329563</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="对象哈希值一直不同">
+      <created>1685555129146</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685555129146</updated>
+    </task>
+    <task id="LOCAL-00006" summary="对象哈希值一直不同">
+      <created>1685555185823</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685555185823</updated>
+    </task>
+    <task id="LOCAL-00007" summary="test">
+      <created>1685555342235</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685555342235</updated>
+    </task>
+    <task id="LOCAL-00008" summary="test">
+      <created>1685555412775</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1685555412775</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="RECENT_FILTERS">
       <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
         <entry key="User">
           <value>
             <list>
@@ -282,7 +323,9 @@
     <MESSAGE value="控制器重构" />
     <MESSAGE value="三张地图基本实现" />
     <MESSAGE value="基本完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="基本完成" />
+    <MESSAGE value="对象哈希值一直不同" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -293,43 +336,13 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java</url>
-          <line>106</line>
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java</url>
-          <line>118</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java</url>
-          <line>124</line>
-          <option name="timeStamp" value="97" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java</url>
-          <line>134</line>
-          <option name="timeStamp" value="98" />
+          <line>140</line>
+          <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java</url>
           <line>141</line>
-          <option name="timeStamp" value="99" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java</url>
-          <line>142</line>
-          <option name="timeStamp" value="100" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java</url>
-          <line>140</line>
-          <option name="timeStamp" value="101" />
+          <option name="timeStamp" value="107" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
