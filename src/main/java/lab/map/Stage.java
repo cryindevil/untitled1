@@ -15,10 +15,11 @@ public class Stage implements Serializable {
 	public ArrayList<FilledTrap>filledTraps=new ArrayList<>();
 	public int x;
 	public int y;
-	Robot robot;
+	public Robot robot;
+	public boolean robotDefined=false;
 	public boolean hasVisited;
-	public String wrongPath;
-	public String diaryPath;
+	public String wrongPath="src/main/resources/store/新关卡wrong.txt";
+	public String diaryPath="src/main/resources/store/新关卡diary.txt";
 
 	public String status= null;
 
@@ -26,10 +27,16 @@ public class Stage implements Serializable {
 	public boolean functionDefined=false;
 	public String[]commands;
 
-	public Stage() {
+	public boolean hasDefined=false;
+
+	public boolean mapSizeDefined=false;
+	public Stage()  {
+
 	}
 
-
+	public void setRobot(int x,int y,int dire) {
+		this.robot = new Robot(x,y,dire);
+	}
 
 	public void setStage1() throws IOException {
 		wrongPath="src/main/resources/store/关卡1wrong.txt";

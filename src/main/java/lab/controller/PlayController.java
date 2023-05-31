@@ -17,7 +17,6 @@ import java.util.ArrayList;
 
 public class PlayController {
     SharedService sharedService=SharedService.getInstance();//创建共享类
-
     @FXML
     public MenuItem help;
     @FXML
@@ -44,13 +43,35 @@ public class PlayController {
 
     @FXML
     void quitStageButtonClicked(ActionEvent event) {
+        sharedService.playingNewStage=false;
         sharedService.stage.setScene(sharedService.startScene);
     }
 
     @FXML
     void runCodeButtonClicked(ActionEvent event) {
-        sharedService.inputProcess.setStage(sharedService.getStage());
         process(enterCode(),sharedService.getStage());
+        sharedService.inputProcess.setStage(sharedService.getStage());
+        showDiaryWrong();
+    }//运行代码
+
+    @FXML
+    void saveClicked(ActionEvent event) {
+        try {
+            String path;
+            if (sharedService.playingNewStage)path="src/main/resources/ser/新关卡.ser";
+            else path="src/main/resources/ser/"+sharedService.startController.string+".ser";
+            FileOutputStream fileOut = new FileOutputStream(path);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            if (sharedService.playingNewStage) out.writeObject(sharedService.newstage);
+                else out.writeObject(sharedService.getStage());
+            out.close();
+            fileOut.close();
+        } catch (Exception ee) {
+            ee.printStackTrace();
+        }
+    }
+
+    public void showDiaryWrong(){
         File file = new File(sharedService.getStage().wrongPath);
         BufferedReader reader = null;
         try {
@@ -99,10 +120,63 @@ public class PlayController {
         }
         diary.setText(content.toString());
 
-    }//运行代码
-
-    public PlayController() throws IOException {
     }
+
+    @FXML
+    void resetThisStage(ActionEvent event) throws IOException {
+        if (sharedService.playingNewStage){
+            sharedService.newstage=new Stage();
+            try {
+                String path;
+                if (sharedService.playingNewStage)path="src/main/resources/ser/新关卡.ser";
+                else path="src/main/resources/ser/"+sharedService.startController.string+".ser";
+                FileOutputStream fileOut = new FileOutputStream(path);
+                ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                if (sharedService.playingNewStage) out.writeObject(sharedService.newstage);
+                else out.writeObject(sharedService.getStage());
+                out.close();
+                fileOut.close();
+            } catch (Exception ee) {
+                ee.printStackTrace();
+            }
+            sharedService.stage.setScene(sharedService.createScene);
+        }else{if(sharedService.startController.string.equals("关卡1")){
+            sharedService.stage1.setStage1();
+        }if (sharedService.startController.string.equals("关卡2")){
+            sharedService.stage2.setStage2();
+        }else sharedService.stage3.setStage3();
+
+        setMap(sharedService.getStage());}
+}//!考虑new情况
+
+    @FXML
+    void resetAllStage(ActionEvent event) throws IOException {
+        sharedService.stage1.setStage1();
+        sharedService.stage2.setStage2();
+        sharedService.stage3.setStage3();
+        sharedService.newstage=new Stage();
+        if (sharedService.playingNewStage){
+                sharedService.newstage=new Stage();
+                try {
+                    String path;
+                    if (sharedService.playingNewStage)path="src/main/resources/ser/新关卡.ser";
+                    else path="src/main/resources/ser/"+sharedService.startController.string+".ser";
+                    FileOutputStream fileOut = new FileOutputStream(path);
+                    ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                    if (sharedService.playingNewStage) out.writeObject(sharedService.newstage);
+                    else out.writeObject(sharedService.getStage());
+                    out.close();
+                    fileOut.close();
+                } catch (Exception ee) {
+                    ee.printStackTrace();
+                }
+            sharedService.stage.setScene(sharedService.createScene);
+        }else {
+            setMap(sharedService.getStage());
+        }
+    }//考虑new情况
+
+    public PlayController() throws IOException {}
 
     public ArrayList<String> enterCode(){
         ArrayList<String> list = new ArrayList<>();
@@ -123,6 +197,7 @@ public class PlayController {
                 System.out.println(sb);
                 list.add(sb.toString()); // 将拼接好的字符串添加到结果 ArrayList 中
                 sb.setLength(0); // 清空 StringBuilder
+                i--;
             }//报错
         }
         return list;
@@ -137,21 +212,6 @@ public class PlayController {
             }
             setMap(stage);
         }
-
-    @FXML
-    void saveClicked(ActionEvent event) {
-        try {
-            FileOutputStream fileOut = new FileOutputStream("src/main/resources/ser/"+sharedService.startController.string+".ser");
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(sharedService.getStage());
-            out.close();
-            fileOut.close();
-            System.out.printf("Serialized data is saved in person.ser");
-        } catch (Exception ee) {
-            ee.printStackTrace();
-        }
-    }
-
 
     public void setMap(Stage stage) {
         Image image = new Image("/pics/空白s.jpg");
@@ -196,21 +256,4 @@ public class PlayController {
         map.add(imageView,j,i);
     }//地图上的某个格子中加入图片
 
-    @FXML
-    void resetThisStage(ActionEvent event) throws IOException {
-        if(sharedService.startController.string.equals("关卡1")){
-            sharedService.stage1.setStage1();
-        }if (sharedService.startController.string.equals("关卡2")){
-            sharedService.stage2.setStage2();
-        }else sharedService.stage3.setStage3();
-        setMap(sharedService.getStage());
-    }//!考虑new情况
-
-    @FXML
-    void resetThreeStage(ActionEvent event) throws IOException {
-        sharedService.stage1.setStage1();
-        sharedService.stage2.setStage2();
-        sharedService.stage3.setStage3();
-        setMap(sharedService.getStage());
-    }//考虑new情况
 }

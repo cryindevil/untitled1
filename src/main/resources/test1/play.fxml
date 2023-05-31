@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: rgba(0, 0, 0, 0);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab.controller.PlayController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: rgba(0, 0, 0, 0);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab.controller.PlayController">
    <children>
       <Label layoutX="277.0" layoutY="92.0" prefHeight="39.0" prefWidth="163.0" text="代码区域">
          <font>
@@ -41,7 +41,7 @@
       </Button>
       <TextArea fx:id="codeArea" layoutX="137.0" layoutY="183.0" prefHeight="489.0" prefWidth="489.0">
          <font>
-            <Font size="18.0" />
+            <Font size="24.0" />
          </font></TextArea>
       <MenuBar prefHeight="62.0" prefWidth="344.0">
          <menus>
@@ -54,7 +54,7 @@
             </Menu>
             <Menu mnemonicParsing="false" style="-fx-font-size: 30;" text="编辑">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#resetThreeStage" text="还原三个关卡" />
+                  <MenuItem mnemonicParsing="false" onAction="#resetAllStage" text="还原所有关卡" />
                   <MenuItem mnemonicParsing="false" onAction="#resetThisStage" text="还原此关卡" />
                </items></Menu>
             <Menu mnemonicParsing="false" style="-fx-font-size: 30;" text="视图">
@@ -90,14 +90,14 @@
             <RowConstraints maxHeight="268.33333333333337" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <TextArea fx:id="wrong" layoutX="139.0" layoutY="762.0" prefHeight="160.0" prefWidth="489.0">
+      <TextArea fx:id="wrong" editable="false" layoutX="139.0" layoutY="762.0" prefHeight="160.0" prefWidth="489.0" style="-fx-scroll-bar-position: bottom;">
          <font>
-            <Font size="18.0" />
+            <Font size="24.0" />
          </font>
       </TextArea>
-      <TextArea fx:id="diary" layoutX="1068.0" layoutY="828.0" prefHeight="205.0" prefWidth="652.0">
+      <TextArea fx:id="diary" editable="false" layoutX="1068.0" layoutY="828.0" prefHeight="205.0" prefWidth="652.0" style="-fx-scroll-bar-position: bottom;">
          <font>
-            <Font size="18.0" />
+            <Font size="24.0" />
          </font>
       </TextArea>
    </children>

@@ -6,10 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="3d1f40d5-e7fd-4426-8f77-b7c087f5245e" name="更改" comment="三张地图基本实现">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/CreateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/CreateController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/PlayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/PlayController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/关卡1.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ser/关卡1.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/store/关卡1wrong.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/store/关卡1wrong.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/StartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab/map/Stage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/map/Stage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pics/机器人.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test1/createMap.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test1/createMap.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/test1/play.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test1/play.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +35,7 @@
   </component>
   <component name="ProblemsViewState">
     <option name="autoscrollToSource" value="true" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2QL6j7TiLseqQko1ydCzPnvIesU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -172,11 +176,6 @@
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="46c1d5ed-eeb6-4446-a900-d65a372d7ac1" value="TOOL_WINDOW" />
-      </map>
-    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="User">
@@ -195,6 +194,31 @@
     <option name="TAB_STATES">
       <map>
         <entry key="46c1d5ed-eeb6-4446-a900-d65a372d7ac1">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
+        <entry key="79e958a6-11cd-488a-b6ed-30b443edcd87">
           <value>
             <State>
               <option name="FILTERS">
