@@ -28,7 +28,7 @@ public class PlayController {
     @FXML
     public MenuItem save;
     @FXML
-    private GridPane map;
+    public GridPane map;
     @FXML
     private Button run;
     @FXML
@@ -43,8 +43,10 @@ public class PlayController {
     public Pane smallPane;
     @FXML
     public AnchorPane bigPane;
+    javafx.stage.Stage asdStage;
 
-    Stage targetStage;
+    public Stage initStage;
+//    public boolean hasSaved=false;
 
     @FXML
     void loadGameItemClicked(ActionEvent event) {
@@ -63,6 +65,7 @@ public class PlayController {
         process(enterCode(),sharedService.getStage());
         sharedService.inputProcess.setStage(sharedService.getStage());
         showDiaryWrong();
+        sharedService.getStage().hasSaved=false;
     }//运行代码
 
     @FXML
@@ -77,6 +80,7 @@ public class PlayController {
                 else out.writeObject(sharedService.getStage());
             out.close();
             fileOut.close();
+            sharedService.getStage().hasSaved=true;
         } catch (Exception ee) {
             ee.printStackTrace();
         }
@@ -188,74 +192,97 @@ public class PlayController {
     }//考虑new情况
     @FXML
     void changeNewStageMenu(ActionEvent event) throws FileNotFoundException {
+        initStage=sharedService.getStage();
         sharedService.playingNewStage=true;
 
-        System.out.println(sharedService.stage1==null);
-        if(sharedService.hasChanged()){
-            sharedService.startController.string="新关卡";
-            javafx.stage.Stage stage = new javafx.stage.Stage();
-            stage.setScene(sharedService.changeScene);
-            stage.show();
-
-            targetStage=sharedService.newstage;
-        }else {
+        System.out.println(sharedService.getStage().hasSaved);
+        if(sharedService.playController.sharedService.getStage().hasSaved){
+            map.getChildren().clear();
             sharedService.startController.string="新关卡";
             if (sharedService.newstage.hasDefined) {
                 sharedService.playController.setMap(sharedService.getStage());
                 sharedService.playController.showDiaryWrong();
             }
             else sharedService.stage.setScene(sharedService.createScene);
+
+        }else {
+
+            sharedService.startController.string="新关卡";
+
+            asdStage.setScene(sharedService.changeScene);
+            asdStage.show();
+
+
+
         }
     }
 
     @FXML
     void changeStage1Menu(ActionEvent event) throws FileNotFoundException {
+        initStage=sharedService.getStage();
         sharedService.playingNewStage=false;
 
-        if(sharedService.hasChanged()){
-            sharedService.startController.string="关卡1";
-            javafx.stage.Stage stage = new javafx.stage.Stage();
-            stage.setScene(sharedService.changeScene);
-            stage.show();
-            targetStage=sharedService.stage1;
-        }else {
+        System.out.println(sharedService.playController.sharedService.getStage().hasSaved);
+        System.out.println(sharedService.getStage());
+        System.out.println(sharedService.startController.string);
+        if(sharedService.playController.sharedService.getStage().hasSaved){
+            map.getChildren().clear();
             sharedService.startController.string="关卡1";
             sharedService.playController.setMap(sharedService.getStage());
             sharedService.playController.showDiaryWrong();
+        }else {
+            sharedService.startController.string="关卡1";
+            asdStage = new javafx.stage.Stage();
+            asdStage.setScene(sharedService.changeScene);
+            asdStage.show();
+
         }
     }
 
     @FXML
     void changeStage2Menu(ActionEvent event) throws FileNotFoundException {
+        initStage=sharedService.getStage();
         sharedService.playingNewStage=false;
-
-        if(sharedService.hasChanged()){
-            sharedService.startController.string="关卡2";
-            javafx.stage.Stage stage = new javafx.stage.Stage();
-            stage.setScene(sharedService.changeScene);
-            stage.show();
-            targetStage=sharedService.stage2;
-        }else{
+        System.out.println(sharedService.getStage().hasSaved);
+        System.out.println(sharedService.getStage());
+        System.out.println(sharedService.startController.string);
+        if(sharedService.playController.sharedService.getStage().hasSaved){
+            map.getChildren().clear();
             sharedService.startController.string="关卡2";
             sharedService.playController.setMap(sharedService.getStage());
             sharedService.playController.showDiaryWrong();
+
+        }else{   sharedService.startController.string="关卡2";
+            asdStage = new javafx.stage.Stage();
+            asdStage.setScene(sharedService.changeScene);
+            asdStage.show();
+
+
+
         }
     }
 
     @FXML
     void changeStage3Menu(ActionEvent event) throws FileNotFoundException {
+        initStage=sharedService.getStage();
         sharedService.playingNewStage=false;
+        System.out.println(sharedService.getStage().hasSaved);
+        System.out.println(sharedService.getStage());
+        System.out.println(sharedService.startController.string);
+        if(sharedService.playController.sharedService.getStage().hasSaved){
+            map.getChildren().clear();
 
-        if(sharedService.hasChanged()){
-            sharedService.startController.string="关卡3";
-            javafx.stage.Stage stage = new javafx.stage.Stage();
-            stage.setScene(sharedService.changeScene);
-            stage.show();
-            targetStage=sharedService.stage3;
-        }else{
             sharedService.startController.string="关卡3";
             sharedService.playController.setMap(sharedService.getStage());
             sharedService.playController.showDiaryWrong();
+
+        }else{
+            sharedService.startController.string="关卡3";
+            asdStage = new javafx.stage.Stage();
+            asdStage.setScene(sharedService.changeScene);
+            asdStage.show();
+
+
         }
     }
 

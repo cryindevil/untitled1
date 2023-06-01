@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d1f40d5-e7fd-4426-8f77-b7c087f5245e" name="更改" comment="test" />
+    <list default="true" id="3d1f40d5-e7fd-4426-8f77-b7c087f5245e" name="更改" comment="test">
+      <change afterPath="$PROJECT_DIR$/src/main/java/lab/controller/reset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/PlayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/PlayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/changeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/changeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab/map/Stage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/map/Stage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/关卡1.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/关卡2.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/关卡3.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/新关卡.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/store/关卡1wrong.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/store/关卡1wrong.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/store/关卡2wrong.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/store/关卡2wrong.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,19 +87,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GridPaneExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="lab.GridPaneExample" />
-      <module name="untitled1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value=".*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TimelineExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lab.TimelineExample" />
       <module name="untitled1" />
@@ -114,6 +113,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="reset" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lab.controller.reset" />
+      <module name="untitled1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lab.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="scale" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lab.scale" />
       <module name="untitled1" />
@@ -130,10 +142,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="应用程序.scale" />
+        <item itemvalue="应用程序.reset" />
         <item itemvalue="应用程序.ButtonTextExample" />
         <item itemvalue="应用程序.TimerExample" />
         <item itemvalue="应用程序.TimelineExample" />
-        <item itemvalue="应用程序.GridPaneExample" />
       </list>
     </recent_temporary>
   </component>

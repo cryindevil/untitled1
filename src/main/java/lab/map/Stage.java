@@ -27,12 +27,13 @@ public class Stage implements Serializable {
 	public boolean functionDefined=false;
 	public String[]commands;
 
-	public boolean hasDefined=false;
+	public boolean hasDefined=true;
 
 	public boolean mapSizeDefined=false;
 
 	public boolean win=false;
 	public boolean lose=false;
+	public  boolean hasSaved=true;
 	public Stage()  {
 
 	}
