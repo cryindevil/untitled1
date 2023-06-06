@@ -74,7 +74,7 @@ public class SharedService {
         if (playingNewStage) return newstage;
         if(startController.string.contains("关卡1")){
             return stage1;
-        }if (startController.string.contains("关卡2")){
+        }else if (startController.string.contains("关卡2")){
             return stage2;
         }else if (startController.string.contains("关卡3")){
             return stage3;

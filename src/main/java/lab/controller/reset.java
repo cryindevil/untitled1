@@ -15,7 +15,7 @@ public class reset {
 //        sharedService.stage3.status = "(未游玩)";
 //        System.out.println("OK");
                     Stage stage=new Stage();
-//            stage.setStage3();
+//            stage.setStage2();
         try {
             // 创建一个 FileOutputStream 对象来写入文件
             FileOutputStream fileOut = new FileOutputStream("src/main/resources/ser/新关卡.ser");

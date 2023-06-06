@@ -35,6 +35,8 @@ public class Stage implements Serializable {
 	public boolean win=false;
 	public boolean lose=false;
 	public  boolean hasSaved=true;
+	public String tempDiary="";
+	public String tempWrong="";
 
 	public Stage()  {
 
@@ -107,13 +109,16 @@ public class Stage implements Serializable {
 
 	public void lose(){
 		status= "(已失败)";
-		InputProcess.writeToFile(diaryPath,"You lose!");
+//		InputProcess.writeToFile(diaryPath,"You lose!\n");
+		tempDiary+="You lose!\n";
 	}
 
 	public void win(){
 		status= "(已通关)" ;
-		InputProcess.writeToFile(diaryPath,"You win!");
+//		InputProcess.writeToFile(diaryPath,"You win!\n");
+		tempDiary+="You win!\n";
 	}
+
 
 	public class Robot implements Serializable {
 		public int x;
@@ -152,13 +157,16 @@ public class Stage implements Serializable {
 
 		public void showInformation(){
 			String message = String.format("There %s %d %s on the map that you need to collect.\n",Rock.count-rockPicked <= 1 ? "is" : "are",Rock.count-rockPicked, Rock.count-rockPicked <= 1 ? "rock" : "rocks");
-			InputProcess.writeToFile(diaryPath,message);
+//			InputProcess.writeToFile(diaryPath,message);
+			tempDiary+=message;
 //			System.out.println(message);
 			message = String.format("There %s %d %s in your bag.\n",rockInBag <= 1 ? "is" : "are",rockInBag, rockInBag <= 1 ? "rock" : "rocks");
 //			System.out.println("There is "+rockInBag+" rock in your bag.");
-			InputProcess.writeToFile(diaryPath,message);
+//			InputProcess.writeToFile(diaryPath,message);
+			tempDiary+=message;
 			message = String.format("You are %d %s away from the nearest rock.\n", minDistance(), minDistance() <= 1 ? "step" : "steps");
-			InputProcess.writeToFile(diaryPath,message);
+//			InputProcess.writeToFile(diaryPath,message);
+			tempDiary+=message;
 //			System.out.println(message);
 		}
 
@@ -174,14 +182,17 @@ public class Stage implements Serializable {
 
 		public void move() {
 			if(willRobotHitBoundary()){
-				InputProcess.writeToFile(wrongPath,"You hit onto the boundary!\n");
+//				InputProcess.writeToFile(wrongPath,"You hit onto the boundary!\n");
+				tempWrong+="You hit onto the boundary!\n";
 			} else if (isFacingThing()) {
 				for (Thing thing :
 						list) {
 					if (thing.getX() == this.facingBlockX() && thing.getY() == facingBlockY()) {
 						if (thing instanceof Trap) lose();
-						if (thing instanceof Wall) InputProcess.writeToFile(wrongPath,"You hit yourself onto the wall.\n");
-						if (thing instanceof Rock) InputProcess.writeToFile(wrongPath,"You hit yourself onto a rock.\n");
+//						if (thing instanceof Wall) InputProcess.writeToFile(wrongPath,"You hit yourself onto the wall.\n");
+//						if (thing instanceof Rock) InputProcess.writeToFile(wrongPath,"You hit yourself onto a rock.\n");
+						if (thing instanceof Wall) tempWrong+="You hit yourself onto the wall.\n";
+						if (thing instanceof Rock) tempWrong+="You hit yourself onto a rock.\n";
 					}
 				}
 			}else {
@@ -216,7 +227,8 @@ public class Stage implements Serializable {
 					}
 				}
 				if (trap!=null)list.remove(trap);
-			} else InputProcess.writeToFile(wrongPath,"You don't have any rock in your bag.\n");
+			} else tempWrong+="You don't have any rock in your bag.\n";
+//				InputProcess.writeToFile(wrongPath,"You don't have any rock in your bag.\n");
 
 		}
 
@@ -244,14 +256,15 @@ public class Stage implements Serializable {
 					rockInBag++;
 					rockPicked++;
 					String message = String.format("Now you have %d %s in your bag\n", rockInBag, rockInBag <= 1 ? "rock" : "rocks");
-					InputProcess.writeToFile(diaryPath,message);
+//					InputProcess.writeToFile(diaryPath,message);
 //					System.out.println(message);
-
+					tempDiary+=message;
 				}
 			}
 			if (rock != null) list.remove(rock);
 			else {
-				InputProcess.writeToFile(wrongPath,"There is no rock ahead! Please enter again.");
+//				InputProcess.writeToFile(wrongPath,"There is no rock ahead! Please enter again.");
+				tempWrong+="There is no rock ahead! Please enter again.\n";
 			}
 			;
 			for (Thing thing :
@@ -276,6 +289,14 @@ public class Stage implements Serializable {
 			return flag;
 		}
 	}
+		public void write(){
+			if (!tempWrong.equals(""))InputProcess.writeToFile(wrongPath,tempWrong);
+			if (!tempDiary.equals(""))InputProcess.writeToFile(diaryPath,tempDiary);
+		}
 
+		public void clearTemp(){
+			tempWrong="";
+			tempDiary="";
+		}
 
 }

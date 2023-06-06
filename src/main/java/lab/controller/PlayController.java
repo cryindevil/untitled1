@@ -37,9 +37,9 @@ public class PlayController {
     @FXML
     private Button playReturn;
     @FXML
-//    public TextArea wrong;
+    public TextArea wrong;
     @FXML
-//    public TextArea diary;
+    public TextArea diary;
     @FXML
     public Pane smallPane;
     @FXML
@@ -61,6 +61,7 @@ public class PlayController {
         sharedService.startController.string = sharedService.startController.choosingList.getValue();
         sharedService.refreshChoiceBox();
         map.getChildren().clear();
+        sharedService.loadSave();
     }
 
     @FXML
@@ -72,7 +73,9 @@ public class PlayController {
     }//运行代码
 
     @FXML
-    void saveClicked(ActionEvent event) {
+    public void saveClicked() {
+        sharedService.getStage().write();
+        sharedService.getStage().clearTemp();
         try {
             String path;
             if (sharedService.playingNewStage)path="src/main/resources/ser/新关卡.ser";
@@ -87,6 +90,7 @@ public class PlayController {
         } catch (Exception ee) {
             ee.printStackTrace();
         }
+
     }
 
     public void showDiaryWrong(){
@@ -113,8 +117,8 @@ public class PlayController {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
-        wrong.setText(content.toString());
-
+        wrong.setText(content +sharedService.getStage().tempWrong);
+        System.out.println(sharedService.getStage().tempWrong);
         file = new File(sharedService.getStage().diaryPath);
         reader = null;
         try {
@@ -136,12 +140,13 @@ public class PlayController {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
-        diary.setText(content.toString());
+        diary.setText(content.toString()+sharedService.getStage().tempDiary);
 
     }
 
     @FXML
-    void resetThisStage(ActionEvent event) throws IOException {
+    public void resetThisStage() throws IOException {
+        Stage stage=new Stage();
         if (sharedService.playingNewStage){
             sharedService.newstage=new Stage();
             try {
@@ -158,12 +163,18 @@ public class PlayController {
                 ee.printStackTrace();
             }
             sharedService.stage.setScene(sharedService.createScene);
-        }else{if(sharedService.startController.string.equals("关卡1")){
-            sharedService.stage1.setStage1();
-        }if (sharedService.startController.string.equals("关卡2")){
-            sharedService.stage2.setStage2();
-        }else sharedService.stage3.setStage3();
-
+        }else{
+        if(sharedService.startController.string.contains("关卡1")){
+            stage.setStage1();
+            sharedService.stage1=stage;
+        }else if (sharedService.startController.string.contains("关卡2")){
+            stage.setStage2();
+            sharedService.stage2=stage;
+        }else {
+            stage.setStage3();
+            sharedService.stage3=stage;
+        }
+            System.out.println(sharedService.startController.string);
         setMap(sharedService.getStage());}
 }//!考虑new情况
 
@@ -172,10 +183,13 @@ public class PlayController {
         Stage stage=new Stage();
         stage.setStage1();
         sharedService.stage1=stage;
-        stage=new Stage();
-        sharedService.stage2=stage;
-        stage=new Stage();
-        sharedService.stage3=stage;
+        Stage stage2=new Stage();
+        stage2.setStage2();
+        sharedService.stage2=stage2;
+        Stage stage3=new Stage();
+        stage3.setStage3();
+
+        sharedService.stage3=stage3;
 
         sharedService.newstage=new Stage();
         if (sharedService.playingNewStage){
