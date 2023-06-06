@@ -15,10 +15,10 @@ public class reset {
 //        sharedService.stage3.status = "(未游玩)";
 //        System.out.println("OK");
                     Stage stage=new Stage();
-//            stage.setStage2();
+            stage.setStage3();
         try {
             // 创建一个 FileOutputStream 对象来写入文件
-            FileOutputStream fileOut = new FileOutputStream("src/main/resources/ser/新关卡.ser");
+            FileOutputStream fileOut = new FileOutputStream("src/main/resources/ser/关卡3.ser");
 
             // 创建一个 ObjectOutputStream 对象来序列化对象
             ObjectOutputStream out = new ObjectOutputStream(fileOut);

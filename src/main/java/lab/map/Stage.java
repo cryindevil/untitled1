@@ -37,6 +37,7 @@ public class Stage implements Serializable {
 	public  boolean hasSaved=true;
 	public String tempDiary="";
 	public String tempWrong="";
+	public String name="new stage";
 
 	public Stage()  {
 
@@ -51,7 +52,7 @@ public class Stage implements Serializable {
 		diaryPath="src/main/resources/store/关卡1diary.txt";
 		InputProcess.clearFile(wrongPath);
 		InputProcess.clearFile(diaryPath);
-//		status="关卡1";
+		name="stage1";
 		x=3;
 		y=6;
 		list.clear();
@@ -64,7 +65,7 @@ public class Stage implements Serializable {
 		diaryPath="src/main/resources/store/关卡2diary.txt";
 		InputProcess.clearFile(wrongPath);
 		InputProcess.clearFile(diaryPath);
-//		status="关卡2";
+		name="stage2";
 		x=3;
 		y=6;
 		list.clear();
@@ -83,7 +84,7 @@ public class Stage implements Serializable {
 		diaryPath="src/main/resources/store/关卡3diary.txt";
 		InputProcess.clearFile(wrongPath);
 		InputProcess.clearFile(diaryPath);
-//		status="关卡3";
+		name="stage3";
 		x=5;
 		y=8;
 		list.clear();

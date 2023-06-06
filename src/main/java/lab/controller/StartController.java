@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import lab.director.InputProcess;
 
 import java.io.IOException;
 
@@ -50,11 +51,15 @@ public class StartController {
     public void chooseStageButtonClicked(ActionEvent event) throws IOException {
         if (sharedService.getStage().status.equals("(未游玩)")){
             sharedService.getStage().status="(已游玩)";
+            InputProcess.writeToFile(sharedService.getStage().diaryPath,sharedService.getStage().name+" initialized!\n");
             sharedService.playController.saveClicked();
+//            sharedService.getStage().tempDiary=(sharedService.getStage().name+" initialized!\n");
             }
+
         System.out.println(string);
         System.out.println(sharedService.stage2.status);
         System.out.println(sharedService.stage3.status);
+        System.out.println(sharedService.getStage().tempDiary);
 
         if(string.contains("(已通关)")||string.contains("已失败")) {
             sharedService.playController.resetThisStage();

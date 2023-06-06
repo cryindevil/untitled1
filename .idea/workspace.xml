@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d1f40d5-e7fd-4426-8f77-b7c087f5245e" name="更改" comment="除了显示地图正在游玩中的功能基本完成，输入框里没有内容要记得try catch，游戏说明">
+    <list default="true" id="3d1f40d5-e7fd-4426-8f77-b7c087f5245e" name="更改" comment="开始更改wrong和diary">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/PlayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/PlayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/StartController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/reset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/reset.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lab/map/Stage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/map/Stage.java" afterDir="false" />
@@ -15,7 +13,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/resources/ser/关卡2.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ser/关卡2.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ser/关卡3.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ser/关卡3.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ser/新关卡.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ser/新关卡.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/store/关卡1diary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/store/关卡1diary.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685596737646</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="开始更改wrong和diary">
+      <created>1686053654296</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1686053654296</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -335,7 +339,8 @@
     <MESSAGE value="对象哈希值一直不同" />
     <MESSAGE value="test" />
     <MESSAGE value="除了显示地图正在游玩中的功能基本完成，输入框里没有内容要记得try catch，游戏说明" />
-    <option name="LAST_COMMIT_MESSAGE" value="除了显示地图正在游玩中的功能基本完成，输入框里没有内容要记得try catch，游戏说明" />
+    <MESSAGE value="开始更改wrong和diary" />
+    <option name="LAST_COMMIT_MESSAGE" value="开始更改wrong和diary" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -344,21 +349,6 @@
           <properties class="java.io.NotSerializableException" package="java.io" />
           <option name="timeStamp" value="47" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/lab/controller/PlayController.java</url>
-          <line>142</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/lab/controller/PlayController.java</url>
-          <line>119</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/lab/controller/PlayController.java</url>
-          <line>120</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
