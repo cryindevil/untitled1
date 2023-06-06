@@ -1,5 +1,6 @@
 package lab.controller;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -37,6 +38,8 @@ public class SharedService {
     public Scene playScene;//获得三个scene
     public Scene changeScene;
     public Stage stage;//显示图片的主stage
+    public String diary="";
+    public String wrong="";
 
 
     public void init() throws IOException {
@@ -69,13 +72,13 @@ public class SharedService {
 
     public lab.map.Stage getStage(){
         if (playingNewStage) return newstage;
-        if(startController.string.equals("关卡1")){
+        if(startController.string.contains("关卡1")){
             return stage1;
-        }if (startController.string.equals("关卡2")){
+        }if (startController.string.contains("关卡2")){
             return stage2;
-        }else if (startController.string.equals("新关卡")){
-            return newstage;
-        }else return stage3;
+        }else if (startController.string.contains("关卡3")){
+            return stage3;
+        }else return newstage;
 
     }//已添加newstage
 
@@ -140,6 +143,19 @@ public class SharedService {
 
         lab.map.Stage stage4=getStage();
         if (stage.equals(getStage())&&flag1&&flag2)return false;else return true;
+    }
+
+    public void refreshChoiceBox(){
+        String string;
+        if (newstage.hasDefined)string="(已定义)";else string="(未定义)";
+        startController.options= FXCollections.observableArrayList(
+                "关卡1"+stage1.status,
+                "关卡2"+stage2.status,
+                "关卡3"+stage3.status,
+                "新关卡"+string
+        );
+        startController.choosingList.setItems(startController.options);
+        startController.choosingList.setValue("关卡1"+stage1.status);
     }
 
 

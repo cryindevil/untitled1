@@ -1,5 +1,6 @@
 package lab.controller;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -36,9 +37,9 @@ public class PlayController {
     @FXML
     private Button playReturn;
     @FXML
-    public TextArea wrong;
+//    public TextArea wrong;
     @FXML
-    public TextArea diary;
+//    public TextArea diary;
     @FXML
     public Pane smallPane;
     @FXML
@@ -58,6 +59,8 @@ public class PlayController {
         sharedService.playingNewStage=false;
         sharedService.stage.setScene(sharedService.startScene);
         sharedService.startController.string = sharedService.startController.choosingList.getValue();
+        sharedService.refreshChoiceBox();
+        map.getChildren().clear();
     }
 
     @FXML
@@ -73,7 +76,7 @@ public class PlayController {
         try {
             String path;
             if (sharedService.playingNewStage)path="src/main/resources/ser/新关卡.ser";
-            else path="src/main/resources/ser/"+sharedService.startController.string+".ser";
+            else path="src/main/resources/ser/"+sharedService.startController.string.substring(0,3)+".ser";
             FileOutputStream fileOut = new FileOutputStream(path);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             if (sharedService.playingNewStage) out.writeObject(sharedService.newstage);
@@ -166,9 +169,14 @@ public class PlayController {
 
     @FXML
     void resetAllStage(ActionEvent event) throws IOException {
-        sharedService.stage1.setStage1();
-        sharedService.stage2.setStage2();
-        sharedService.stage3.setStage3();
+        Stage stage=new Stage();
+        stage.setStage1();
+        sharedService.stage1=stage;
+        stage=new Stage();
+        sharedService.stage2=stage;
+        stage=new Stage();
+        sharedService.stage3=stage;
+
         sharedService.newstage=new Stage();
         if (sharedService.playingNewStage){
                 sharedService.newstage=new Stage();
@@ -293,6 +301,10 @@ public class PlayController {
         String[] s=codeArea.getText().split("\n");
         StringBuilder sb = new StringBuilder();
         if(s.length==1) {
+            if(s[0].equals("")){
+                list.add(s[0]);
+                return list;
+            }
             list.add(s[0].substring(0,s[0].length()-1));
             return list;
         }

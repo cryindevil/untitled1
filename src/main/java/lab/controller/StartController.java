@@ -19,15 +19,19 @@ public class StartController {
     public Button chooseStageButton;
 
     public String string="关卡1";
+    public ObservableList<String> options;
     @FXML
     void initialize() {
-        ObservableList<String> options = FXCollections.observableArrayList(
-                "关卡1",
-                "关卡2",
-                "关卡3"
+        String s;
+        if (sharedService.newstage.hasDefined)s="(已定义)";else s="(未定义)";
+         options = FXCollections.observableArrayList(
+                "关卡1"+sharedService.stage1.status,
+                "关卡2"+sharedService.stage2.status,
+                "关卡3"+sharedService.stage3.status,
+                 "新关卡"+s
         );
         choosingList.setItems(options);
-        choosingList.setValue("关卡1");
+        choosingList.setValue("关卡1"+sharedService.stage1.status);
         choosingList.setOnAction((event) -> {
            string = choosingList.getValue();
         });
@@ -44,10 +48,24 @@ public class StartController {
 
     @FXML
     public void chooseStageButtonClicked(ActionEvent event) {
-        sharedService.playController.setMap(sharedService.getStage());
-        sharedService.stage.setScene(sharedService.playScene);
-        sharedService.loadSave();
-        sharedService.playController.showDiaryWrong();
-    }
+        if (string.contains("新关卡")){
+            sharedService.playingNewStage=true;
+            if(sharedService.newstage.hasDefined){
+                sharedService.stage.setScene(sharedService.playScene);
+                sharedService.playController.setMap(sharedService.newstage);
+            }else sharedService.stage.setScene(sharedService.createScene);
+        }else if(string.contains("") )
+
+        {
+            sharedService.playController.setMap(sharedService.getStage());
+            sharedService.stage.setScene(sharedService.playScene);
+            sharedService.loadSave();
+            sharedService.playController.showDiaryWrong();
+            if(sharedService.getStage().status.equals("(未游玩)")){
+                sharedService.getStage().status="(已游玩)";
+            }
+        }
+        }
+
     public StartController() throws IOException {}
 }

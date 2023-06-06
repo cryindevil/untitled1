@@ -4,16 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d1f40d5-e7fd-4426-8f77-b7c087f5245e" name="更改" comment="test">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lab/controller/reset.java" afterDir="false" />
+    <list default="true" id="3d1f40d5-e7fd-4426-8f77-b7c087f5245e" name="更改" comment="除了显示地图正在游玩中的功能基本完成，输入框里没有内容要记得try catch，游戏说明">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/帮助文档.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/PlayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/PlayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/changeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/changeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/SharedService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/StartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lab/controller/reset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/controller/reset.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lab/map/Stage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lab/map/Stage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/关卡1.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/关卡2.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/关卡3.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/新关卡.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/关卡1.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ser/关卡1.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/关卡2.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ser/关卡2.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/关卡3.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ser/关卡3.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ser/新关卡.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ser/新关卡.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/store/关卡1diary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/store/关卡1diary.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/store/关卡1wrong.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/store/关卡1wrong.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/store/关卡2wrong.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/store/关卡2wrong.txt" afterDir="false" />
     </list>
@@ -29,6 +32,7 @@
         <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -54,6 +58,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -207,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685555342235</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="除了显示地图正在游玩中的功能基本完成，输入框里没有内容要记得try catch，游戏说明">
+      <created>1685596737646</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1685596737646</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -323,7 +335,8 @@
     <MESSAGE value="基本完成" />
     <MESSAGE value="对象哈希值一直不同" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="除了显示地图正在游玩中的功能基本完成，输入框里没有内容要记得try catch，游戏说明" />
+    <option name="LAST_COMMIT_MESSAGE" value="除了显示地图正在游玩中的功能基本完成，输入框里没有内容要记得try catch，游戏说明" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

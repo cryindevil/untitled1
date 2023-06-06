@@ -9,20 +9,12 @@ import java.io.ObjectOutputStream;
 
 public class reset {
     public static void main(String[] args) throws IOException {
-//        try {
-
-//
-//            FileOutputStream fileOut = new FileOutputStream("src/main/resources/ser/关卡1.ser");
-//            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-//            out.writeObject(stage);
-//            out.close();
-//            fileOut.close();
-//            System.out.println("ha");
-//        } catch (Exception ee) {
-//            ee.printStackTrace();
-//        }
-//                    SharedService sharedService=SharedService.getInstance();
-            Stage stage=new Stage();
+//        SharedService sharedService = SharedService.getInstance();
+//        sharedService.stage1.status = "(未游玩)";
+//        sharedService.stage2.status = "(未游玩)";
+//        sharedService.stage3.status = "(未游玩)";
+//        System.out.println("OK");
+                    Stage stage=new Stage();
 //            stage.setStage3();
         try {
             // 创建一个 FileOutputStream 对象来写入文件
@@ -45,4 +37,5 @@ public class reset {
             i.printStackTrace();
         }
     }
-}
+    }
+

@@ -2,6 +2,7 @@ package lab.map;
 
 import javafx.scene.control.TextArea;
 import lab.Things.*;
+import lab.controller.SharedService;
 import lab.controller.StartController;
 import lab.director.InputProcess;
 
@@ -21,19 +22,20 @@ public class Stage implements Serializable {
 	public String wrongPath="src/main/resources/store/新关卡wrong.txt";
 	public String diaryPath="src/main/resources/store/新关卡diary.txt";
 
-	public String status= "新关卡";
+	public String status= "(未游玩)";
 
 	public String functionName;
 	public boolean functionDefined=false;
 	public String[]commands;
 
-	public boolean hasDefined=true;
+	public boolean hasDefined=false;
 
 	public boolean mapSizeDefined=false;
 
 	public boolean win=false;
 	public boolean lose=false;
 	public  boolean hasSaved=true;
+
 	public Stage()  {
 
 	}
@@ -47,7 +49,7 @@ public class Stage implements Serializable {
 		diaryPath="src/main/resources/store/关卡1diary.txt";
 		InputProcess.clearFile(wrongPath);
 		InputProcess.clearFile(diaryPath);
-		status="关卡1";
+//		status="关卡1";
 		x=3;
 		y=6;
 		list.clear();
@@ -60,7 +62,7 @@ public class Stage implements Serializable {
 		diaryPath="src/main/resources/store/关卡2diary.txt";
 		InputProcess.clearFile(wrongPath);
 		InputProcess.clearFile(diaryPath);
-		status="关卡2";
+//		status="关卡2";
 		x=3;
 		y=6;
 		list.clear();
@@ -79,7 +81,7 @@ public class Stage implements Serializable {
 		diaryPath="src/main/resources/store/关卡3diary.txt";
 		InputProcess.clearFile(wrongPath);
 		InputProcess.clearFile(diaryPath);
-		status="关卡3";
+//		status="关卡3";
 		x=5;
 		y=8;
 		list.clear();
@@ -104,11 +106,13 @@ public class Stage implements Serializable {
 	}
 
 	public void lose(){
-		status= status+"(已失败)";
+		status= "(已失败)";
+		InputProcess.writeToFile(diaryPath,"You lose!");
 	}
 
 	public void win(){
-		status=status+"(已通关)" ;
+		status= "(已通关)" ;
+		InputProcess.writeToFile(diaryPath,"You win!");
 	}
 
 	public class Robot implements Serializable {
@@ -239,7 +243,7 @@ public class Stage implements Serializable {
 					rock = thing;
 					rockInBag++;
 					rockPicked++;
-					String message = String.format("Now you have %d %s in your bag", rockInBag, rockInBag <= 1 ? "rock" : "rocks");
+					String message = String.format("Now you have %d %s in your bag\n", rockInBag, rockInBag <= 1 ? "rock" : "rocks");
 					InputProcess.writeToFile(diaryPath,message);
 //					System.out.println(message);
 
